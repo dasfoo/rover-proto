@@ -18,7 +18,7 @@ message RoverWheelRequest {
 	int32 right = 2;
 }
 
-// The response message
+// The response message contains response for MoveRover 
 message RoverWheelResponse {
 	string message = 1;
 }

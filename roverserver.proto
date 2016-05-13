@@ -29,7 +29,7 @@ message BoardInfoRequest {
 
 enum StatusCode {
 	OK = 0;
-	HARDWARE = 1;
+	HARDWARE_FAILURE = 1;
 }
 
 // The response message for errors

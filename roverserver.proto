@@ -32,31 +32,31 @@ message RoverWheelResponse {
 
 // The response message for errors
 message Status {
-  StatusCode code = 1;
-  string message = 2;
+	StatusCode code = 1;
+	string message = 2;
 }
 
 message BatteryPercentageRequest {
 }
 
 message BatteryPercentageResponse {
-	int32 battery = 1;
-	Status status = 2;
+	Status status = 1;
+	int32 battery = 2;
 }
 
 message AmbientLightRequest {
 }
 
 message AmbientLightResponse {
-	int32 light = 1;
-	Status status = 2;
+	Status status = 1;
+	int32 light = 2;
 }
 
 message TemperatureAndHumidityRequest {
 }
 
 message TemperatureAndHumidityResponse {
-	int32 temperature = 1;
-	int32 humidity = 2;
-	Status status = 3;
+	Status status = 1;
+	int32 temperature = 2;
+	int32 humidity = 3;
 }

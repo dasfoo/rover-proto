@@ -8,8 +8,16 @@ option objc_class_prefix = "RVR";
 // The rove service definition
 service RoverService {
 	// Send command for movement
-	rpc MoveRover (RoverWheelRequest) returns (RoverWheelResponse) {}
-	rpc GetBoardInfo (BoardInfoRequest) returns (BoardInfoResponse) {}
+	rpc MoveRover(RoverWheelRequest) returns (RoverWheelResponse) {}
+	rpc GetBattery(BatteryRequest) returns (BatteryResponse) {}
+	rpc GetLight(LightRequest) returns (LightResponse) {}
+	rpc GetHumidity(HumidityRequest) returns (HumidityResponse) {}
+	rpc GetTemperature(TemperatureRequest) returns (TemperatureResponse) {}
+}
+
+enum StatusCode {
+	OK = 0;
+	HARDWARE_FAILURE = 1;
 }
 
 // The request message containing command for right and left wheels
@@ -18,33 +26,45 @@ message RoverWheelRequest {
 	int32 right = 2;
 }
 
-// The response message contains response for MoveRover 
+// The response message contains response for MoveRover
 message RoverWheelResponse {
 	Status status = 1;
-}
-
-message BoardInfoRequest {
-
-}
-
-enum StatusCode {
-	OK = 0;
-	HARDWARE_FAILURE = 1;
 }
 
 // The response message for errors
 message Status {
   StatusCode code = 1;
   string message = 2;
-
 }
 
-// The response message containing info about board
-message BoardInfoResponse {// TODO: split
+message BatteryRequest {
+}
+
+message BatteryResponse {
 	int32 battery = 1;
-	int32 light = 2;
-	int32 temperature = 3;
-	int32 humidity = 4;
-	Status status = 5;
+	Status status = 2;
 }
 
+message LightRequest {
+}
+
+message LightResponse {
+	int32 light = 1;
+	Status status = 2;
+}
+
+message TemperatureRequest {
+}
+
+message TemperatureResponse {
+	int32 temperature = 1;
+	Status status = 2;
+}
+
+message HumidityRequest {
+}
+
+message HumidityResponse {
+	int32 humidity = 1;
+	Status status = 2;
+}

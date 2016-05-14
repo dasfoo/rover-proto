@@ -10,9 +10,9 @@ service RoverService {
 	// Send command for movement
 	rpc MoveRover(RoverWheelRequest) returns (RoverWheelResponse) {}
 	rpc GetBatteryPercentage(BatteryPercentageRequest) returns (BatteryPercentageResponse) {}
-	rpc GetLight(LightRequest) returns (LightResponse) {}
-	rpc GetHumidity(HumidityRequest) returns (HumidityResponse) {}
-	rpc GetTemperature(TemperatureRequest) returns (TemperatureResponse) {}
+	rpc GetAmbientLight(AmbientLightRequest) returns (AmbientLightResponse) {}
+//	rpc GetHumidity(HumidityRequest) returns (HumidityResponse) {}
+//	rpc GetTemperature(TemperatureRequest) returns (TemperatureResponse) {}
 }
 
 enum StatusCode {
@@ -45,10 +45,10 @@ message BatteryPercentageResponse {
 	Status status = 2;
 }
 
-message LightRequest {
+message AmbientLightRequest {
 }
 
-message LightResponse {
+message AmbientLightResponse {
 	int32 light = 1;
 	Status status = 2;
 }

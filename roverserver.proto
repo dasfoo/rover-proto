@@ -9,7 +9,7 @@ option objc_class_prefix = "RVR";
 service RoverService {
 	// Send command for movement
 	rpc MoveRover(RoverWheelRequest) returns (RoverWheelResponse) {}
-	rpc GetBattery(BatteryRequest) returns (BatteryResponse) {}
+	rpc GetBatteryPercentage(BatteryPercentageRequest) returns (BatteryPercentageResponse) {}
 	rpc GetLight(LightRequest) returns (LightResponse) {}
 	rpc GetHumidity(HumidityRequest) returns (HumidityResponse) {}
 	rpc GetTemperature(TemperatureRequest) returns (TemperatureResponse) {}
@@ -37,10 +37,10 @@ message Status {
   string message = 2;
 }
 
-message BatteryRequest {
+message BatteryPercentageRequest {
 }
 
-message BatteryResponse {
+message BatteryPercentageResponse {
 	int32 battery = 1;
 	Status status = 2;
 }

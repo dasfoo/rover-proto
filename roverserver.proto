@@ -5,13 +5,14 @@ option java_package = "dasfoo.grpc.roverserver";
 option java_outer_classname = "RoverServerProto";
 option objc_class_prefix = "RVR";
 
-// The rove service definition
+// The rover service definition
 service RoverService {
 	// Send command for movement
 	rpc MoveRover(RoverWheelRequest) returns (RoverWheelResponse) {}
 	rpc GetBatteryPercentage(BatteryPercentageRequest) returns (BatteryPercentageResponse) {}
 	rpc GetAmbientLight(AmbientLightRequest) returns (AmbientLightResponse) {}
 	rpc GetTemperatureAndHumidity(TemperatureAndHumidityRequest) returns (TemperatureAndHumidityResponse) {}
+	rpc ReadEncoders(ReadEncodersRequest) returns (ReadEncodersResponse) {}
 }
 
 enum StatusCode {
@@ -59,4 +60,15 @@ message TemperatureAndHumidityResponse {
 	Status status = 1;
 	int32 temperature = 2;
 	int32 humidity = 3;
+}
+
+message ReadEncodersRequest {
+}
+
+message ReadEncodersResponse {
+	Status status = 1;
+	int32 leftFront = 2;
+	int32 leftBack = 3;
+	int32 rightFront = 4;
+	int32 rightBack = 5;
 }

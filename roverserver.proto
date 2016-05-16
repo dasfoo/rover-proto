@@ -15,11 +15,6 @@ service RoverService {
 	rpc ReadEncoders(ReadEncodersRequest) returns (ReadEncodersResponse) {}
 }
 
-enum StatusCode {
-	OK = 0;
-	HARDWARE_FAILURE = 1;
-}
-
 // The request message containing command for right and left wheels
 message RoverWheelRequest {
 	int32 left = 1;
@@ -28,47 +23,36 @@ message RoverWheelRequest {
 
 // The response message contains response for MoveRover
 message RoverWheelResponse {
-	Status status = 1;
-}
-
-// The response message for errors
-message Status {
-	StatusCode code = 1;
-	string message = 2;
 }
 
 message BatteryPercentageRequest {
 }
 
 message BatteryPercentageResponse {
-	Status status = 1;
-	int32 battery = 2;
+	int32 battery = 1;
 }
 
 message AmbientLightRequest {
 }
 
 message AmbientLightResponse {
-	Status status = 1;
-	int32 light = 2;
+	int32 light = 1;
 }
 
 message TemperatureAndHumidityRequest {
 }
 
 message TemperatureAndHumidityResponse {
-	Status status = 1;
-	int32 temperature = 2;
-	int32 humidity = 3;
+	int32 temperature = 1;
+	int32 humidity = 2;
 }
 
 message ReadEncodersRequest {
 }
 
 message ReadEncodersResponse {
-	Status status = 1;
-	int32 leftFront = 2;
-	int32 leftBack = 3;
-	int32 rightFront = 4;
-	int32 rightBack = 5;
+	int32 leftFront = 1;
+	int32 leftBack = 2;
+	int32 rightFront = 3;
+	int32 rightBack = 4;
 }

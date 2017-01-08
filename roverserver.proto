@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "dasfoo.grpc.roverserver";
+option java_package = "org.dasfoo.rover.server";
 option java_outer_classname = "RoverServerProto";
 option objc_class_prefix = "RVR";
 
